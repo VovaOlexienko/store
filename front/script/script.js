@@ -19,3 +19,4 @@ getProduct(API_PRODUCT).then((data) => {
   price.innerText = `${data[0].price}₴`;
 });
 
+const cardWrapper = document.querySelector('.cards__wrapper');
