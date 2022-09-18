@@ -1,9 +1,5 @@
 const API_PRODUCT = 'data/products.json';
 
-/* const img = document.querySelector('.image-product');
-const description = document.querySelector('.description-product');
-const price = document.querySelector('.price-product'); */
-
 const getProduct = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
@@ -12,12 +8,6 @@ const getProduct = async (url) => {
   }
   return await response.json();
 };
-
-getProduct(API_PRODUCT).then((data) => {
-  img.src = data[0].img;
-  description.innerText = data[0].description;
-  price.innerText = `${data[0].price}₴`;
-});
 
 // NEW VERSION CREATES CARDS FOR CLASS
 const cardWrapper = document.querySelector('.cards__wrapper');
@@ -28,4 +18,26 @@ class Cards {
     this.description = description;
     this.price = price;
   }
+
+  render() {
+    const div = document.createElement('div');
+
+    div.classList.add('card');
+
+    div.innerHTML = `
+      <img src=${this.image} alt="image-product" class="image-product" />
+      <p class="description-product">${this.description}</p>
+      <p class="price-product">${this.price}₴</p>
+      <button>add to cart</button>
+    `;
+    cardWrapper.appendChild(div);
+  }
 }
+
+getProduct(API_PRODUCT)
+.then(data => {
+  data.map(({image, description, price}) => {
+    new Cards(image, description, price).render();
+  });
+});
+
