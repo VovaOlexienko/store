@@ -34,10 +34,8 @@ class Cards {
   }
 }
 
-getProduct(API_PRODUCT)
-.then(data => {
-  data.map(({image, description, price}) => {
+getProduct(API_PRODUCT).then((data) => {
+  data.map(({ image, description, price }) => {
     new Cards(image, description, price).render();
   });
 });
-
