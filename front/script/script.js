@@ -1,4 +1,7 @@
-const API_PRODUCT = 'data/products.json';
+import { counterCart } from './cart.js';
+import { disableBtn } from './cart.js';
+import { recordCartProducts } from './cart.js';
+const API_PRODUCT = 'http://localhost/store/product';
 
 const getProduct = async (url) => {
   const response = await fetch(url);
@@ -11,15 +14,25 @@ const getProduct = async (url) => {
 
 // NEW VERSION CREATES CARDS FOR CLASS
 const cardWrapper = document.querySelector('.cards__wrapper');
+const allClassObjects = [];
 
 class Cards {
-  constructor(image, description, price) {
+  constructor(image, description, price, id) {
     this.image = image;
     this.description = description;
     this.price = price;
+    this.id = id;
+    this.quantity = 1;
   }
 
   render() {
+    allClassObjects[this.id] = {
+      id: this.id,
+      image: this.image,
+      description: this.description,
+      price: this.price,
+      quantity: this.quantity,
+    };
     const div = document.createElement('div');
 
     div.classList.add('card');
@@ -28,14 +41,27 @@ class Cards {
       <img src=${this.image} alt="image-product" class="image-product" />
       <p class="description-product">${this.description}</p>
       <p class="price-product">${this.price}₴</p>
-      <button>add to cart</button>
+      <button class="btn_cart">add to cart</button>
+      <span class="cart__status disable">in cart</span>
     `;
     cardWrapper.appendChild(div);
   }
 }
 
-getProduct(API_PRODUCT).then((data) => {
-  data.map(({ image, description, price }) => {
-    new Cards(image, description, price).render();
+async function resultOfRenderingCards() {
+  await getProduct(API_PRODUCT).then((data) => {
+    data.map(({ image, description, price, id }) => {
+      new Cards(image, description, price, id).render();
+    });
+    const btns = document.querySelectorAll('.btn_cart');
+    btns.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        counterCart();
+        recordCartProducts(i, allClassObjects);
+        disableBtn(item, i);
+      });
+    });
   });
-});
+}
+
+resultOfRenderingCards();

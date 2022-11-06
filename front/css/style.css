@@ -10,7 +10,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: #ffe0b3;
+  background-color: #9de595;
 }
 .header {
   margin-top: 20px;
@@ -84,4 +84,15 @@ button {
 }
 button:hover {
   background-color: #186a3b;
+}
+.disable {
+  display: none;
+}
+.cart__status {
+  margin-top: 10px;
+  font-size: 14pt;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-radius: 15px;
+  color: #cf2d2d;
 }

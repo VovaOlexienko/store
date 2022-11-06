@@ -5,34 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rat Store</title>
-    <link rel="shortcut icon" type="image/png" href="img/rat.png"/>
+    <link rel="shortcut icon" type="image/png" href="img/rat.png" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/popup.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header__wrapper">
-          <div class="name">Rat Store</div>
-          <div class="search-form">
-            <input type="text" class="search-txt" placeholder="Пошук" />
-            <button href="#" class="search-btn">
-              <img src="img/search.png" alt="search" />
-            </button>
-          </div>
-          <div class="cart_block">
-            <p>0</p>
-            <a href="#" class="cart">
-              <img src="img/shopping-cart.png" alt="shopping-cart" />
-            </a>
+    <div class="wrapper">
+      <div class="popup_calc_end" data-modal>
+        <div class="popup_dialog">
+          <div class="popup_content">
+            <div class="popup_calc_end_close"><strong>&times;</strong></div>
+            <div class="order_done">
+              <p>Your order has been processed. Thank you for your purchase!</p>
+            </div>
+            <div class="popup_form">
+              <form class="form" action="#" data-calc="end">
+                <h2>Leave your personal data</h2>
+                <div class="block_input">
+                  <input
+                    class="form_input check_name"
+                    name="user_name"
+                    required
+                    type="text"
+                    placeholder="Enter your name"
+                  />
+                  <input
+                    class="form_input check_surname"
+                    name="user_surname"
+                    required
+                    type="text"
+                    placeholder="Enter your surname"
+                  />
+                  <input
+                    class="form_input check_email"
+                    name="user_email"
+                    required
+                    type="email"
+                    placeholder="Enter your email"
+                  />
+                  <input
+                    class="form_input check_phone"
+                    name="user_phone"
+                    required
+                    type="text"
+                    placeholder="Enter phone number"
+                  />
+                </div>
+                <button class="btn-block button" name="submit" type="submit">
+                  get a check
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </header>
-    <section class="cards">
-      <div class="container">
-        <div class="cards__wrapper"></div>
+      <header class="header">
+        <div class="container">
+          <div class="header__wrapper">
+            <div class="name">Rat Store</div>
+            <div class="search-form">
+              <input type="text" class="search-txt" placeholder="Пошук" />
+              <button href="#" class="search-btn">
+                <img src="img/search.png" alt="search" />
+              </button>
+            </div>
+            <div class="cart_block">
+              <p class="cart__counter"></p>
+              <a href="#" class="cart">
+                <img src="img/shopping-cart.png" alt="shopping-cart" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="cards">
+        <div class="container">
+          <div class="cards__wrapper"></div>
+        </div>
+      </section>
+    </div>
+    <div class="popup__bg">
+      <div class="popup">
+        <img src="img/close.png" class="close-popup" />
+        <p class="popup__text">My Cart</p>
+        <div class="product-cart__wrapper"></div>
+        <div class="popup__total">
+          <button class="btn__registration">Go to the registration</button>
+          <p class="popup__total__price">
+            Total Price: <span class="total-price"></span>
+          </p>
+        </div>
       </div>
-    </section>
-    <script src="script/script.js"></script>
+    </div>
+
+    <script type="module" src="script/script.js"></script>
   </body>
 </html>

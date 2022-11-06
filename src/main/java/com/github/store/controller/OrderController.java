@@ -10,6 +10,7 @@ import com.github.store.repository.OrderRepository;
 import com.github.store.repository.ProductRepository;
 import com.github.store.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,14 @@ import java.util.List;
 
 
 @RestController
+@Da
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
 
+    @CrossOrigin
     @PostMapping("/order")
     public void createOrder(@RequestBody CreateOrderListDto cold) {
         User user = userRepository.save(buildUser(cold.getClientInfo()));

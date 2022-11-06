@@ -1,5 +1,12 @@
 [
   {
+    "id": 0,
+    "image": "http://dummyimage.com/140x140.png/5fa2dd/ffffff",
+    "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
+    "price": 1983,
+    "amount": 119
+  },
+  {
     "id": 1,
     "image": "http://dummyimage.com/140x140.png/5fa2dd/ffffff",
     "description": "Aliquam non mauris.",
@@ -691,12 +698,5 @@
     "description": "In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.",
     "price": 1523,
     "amount": 42
-  },
-  {
-    "id": 100,
-    "image": "http://dummyimage.com/140x140.png/5fa2dd/ffffff",
-    "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
-    "price": 1983,
-    "amount": 119
   }
 ]
