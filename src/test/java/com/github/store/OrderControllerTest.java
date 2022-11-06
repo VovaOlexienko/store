@@ -1,6 +1,7 @@
 package com.github.store;
 
 import com.github.store.controller.OrderController;
+import com.github.store.dto.ClientInfoDto;
 import com.github.store.dto.CreateOrderDto;
 import com.github.store.dto.CreateOrderListDto;
 import com.github.store.entity.Order;
@@ -88,9 +89,13 @@ class OrderControllerTest {
         createOrderDto.setAmount(1);
         List<CreateOrderDto> orders = new ArrayList<>();
         orders.add(createOrderDto);
+        ClientInfoDto clientInfo = new ClientInfoDto();
+        clientInfo.setName("Vlad");
+        clientInfo.setPhone("+380975623811");
+        clientInfo.setEmail("123.@gmail.com");
+        clientInfo.setSurname("Vladovskiy");
         CreateOrderListDto createOrderListDto1 = new CreateOrderListDto();
-        createOrderListDto1.setName("Vlad");
-        createOrderListDto1.setPhone("+380975623811");
+        createOrderListDto1.setClientInfo(clientInfo);
         createOrderListDto1.setOrders(orders);
         return createOrderListDto1;
     }

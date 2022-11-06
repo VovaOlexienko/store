@@ -1,10 +1,13 @@
 package com.github.store.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class CreateOrderDto {
+
+    @JsonProperty("id")
     private Long productId;
+    @JsonProperty("quantity")
     private int amount;
 }
-//{"name":"Vlad","phone":"123123","orders":[{"amount":13,"productId":"1"},{"amount":12,"productId":"2"}]}

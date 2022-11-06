@@ -1,5 +1,6 @@
 package com.github.store.controller;
 
+import com.github.store.dto.ClientInfoDto;
 import com.github.store.dto.CreateOrderListDto;
 import com.github.store.entity.Order;
 import com.github.store.entity.Product;
@@ -25,11 +26,20 @@ public class OrderController {
 
     @PostMapping("/order")
     public void createOrder(@RequestBody CreateOrderListDto cold) {
-        User user = userRepository.save(User.builder().phone(cold.getPhone()).name(cold.getName()).build());
+        User user = userRepository.save(buildUser(cold.getClientInfo()));
         List<Order> orders = cold.getOrders().stream().map(x -> {
             Product p = productRepository.findById(x.getProductId()).orElseThrow();
             return Order.builder().price(p.getPrice()).status(Status.NOT_DONE).amount(x.getAmount()).user(user).product(p).build();
         }).toList();
         orderRepository.saveAll(orders);
+    }
+
+    private static User buildUser(ClientInfoDto clientInfo) {
+        return User.builder()
+                .phone(clientInfo.getPhone())
+                .name(clientInfo.getName())
+                .surname(clientInfo.getSurname())
+                .email(clientInfo.getEmail())
+                .build();
     }
 }
