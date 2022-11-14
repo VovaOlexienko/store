@@ -46,7 +46,7 @@ const clickRemove = () => {
   document.querySelectorAll('.basket-delete').forEach((item, index) => {
     item.addEventListener('click', () => {
       minusCounterCart();
-      enableBtn(cartProducts[index].id);
+      enableBtn(cartProducts[index].index);
       cartProducts[index].price =
         cartProducts[index].price / cartProducts[index].quantity;
       cartProducts[index].quantity = 1;
@@ -232,5 +232,8 @@ const handleBtnRegistr = () => {
     document.querySelector('.popup_form').classList.add('disable');
     document.querySelector('.popup_calc_end_close').classList.add('disable');
     document.querySelector('.order_done').classList.add('active');
+    //setTimeout(() => {
+    location.reload();
+    //}, 5000);
   });
 };

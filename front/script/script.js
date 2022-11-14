@@ -1,7 +1,7 @@
-import { counterCart } from './cart.js';
-import { disableBtn } from './cart.js';
-import { recordCartProducts } from './cart.js';
+import {counterCart, recordCartProducts, disableBtn} from './cart.js';
 const API_PRODUCT = 'http://localhost/store/product';
+const search = document.querySelector('.search-txt');
+const searchBtn = document.querySelector('.search-btn');
 
 const getProduct = async (url) => {
   const response = await fetch(url);
@@ -17,21 +17,23 @@ const cardWrapper = document.querySelector('.cards__wrapper');
 const allClassObjects = [];
 
 class Cards {
-  constructor(image, description, price, id) {
+  constructor(image, description, price, id, index) {
     this.image = image;
     this.description = description;
     this.price = price;
     this.id = id;
     this.quantity = 1;
+    this.index = index;
   }
 
   render() {
-    allClassObjects[this.id] = {
+    allClassObjects[this.index] = {
       id: this.id,
       image: this.image,
       description: this.description,
       price: this.price,
       quantity: this.quantity,
+      index: this.index,
     };
     const div = document.createElement('div');
 
@@ -48,12 +50,13 @@ class Cards {
   }
 }
 
-async function resultOfRenderingCards() {
-  await getProduct(API_PRODUCT).then((data) => {
-    data.map(({ image, description, price, id }) => {
-      new Cards(image, description, price, id).render();
+async function resultOfRenderingCards(url) {
+  await getProduct(url).then((data) => {
+    data.map(({ image, description, price, id }, index) => {
+      new Cards(image, description, price, id, index).render();
     });
     const btns = document.querySelectorAll('.btn_cart');
+    console.log(allClassObjects);
     btns.forEach((item, i) => {
       item.addEventListener('click', () => {
         counterCart();
@@ -64,4 +67,48 @@ async function resultOfRenderingCards() {
   });
 }
 
-resultOfRenderingCards();
+resultOfRenderingCards(API_PRODUCT);
+
+const sendSeacrhRequest = async (url, data) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`Ошибка по адресу${url}, статус ошибки${response}!`);
+  }
+  return await response.json();
+};
+
+const hadleSearch = (e) => {
+  e.preventDefault();
+  const searchData = {
+    searchOptions: `${search.value}`,
+  };
+  sendSeacrhRequest('http://localhost/store/search', JSON.stringify(searchData)).then(
+      (data) => {
+        data.map(({ image, description, price, id }, index) => {
+          new Cards(image, description, price, id, index).render();
+        });
+        const btns = document.querySelectorAll('.btn_cart');
+        console.log(allClassObjects);
+        btns.forEach((item, i) => {
+          item.addEventListener('click', () => {
+            counterCart();
+            recordCartProducts(i, allClassObjects);
+            disableBtn(item, i);
+          });
+        });
+      }
+  );
+  search.value = '';
+  cardWrapper.innerHTML = '';
+};
+searchBtn.addEventListener('click', hadleSearch);
+
+document.querySelector('.name').addEventListener('click', () => {
+  location.reload();
+});

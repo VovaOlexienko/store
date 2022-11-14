@@ -63,12 +63,20 @@
         <div class="container">
           <div class="header__wrapper">
             <div class="name">Rat Store</div>
-            <div class="search-form">
-              <input type="text" class="search-txt" placeholder="Пошук" />
-              <button href="#" class="search-btn">
+            <form class="search-form">
+              <input
+                type="text"
+                class="search-txt"
+                placeholder="Пошук"
+                minlength="3"
+                title="Minimum 3 letter without special symbols"
+                pattern="[a-zA-Z0-9-]+"
+                required
+              />
+              <button href="#" class="search-btn" type="submit">
                 <img src="img/search.png" alt="search" />
               </button>
-            </div>
+            </form>
             <div class="cart_block">
               <p class="cart__counter"></p>
               <a href="#" class="cart">
