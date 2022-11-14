@@ -8,10 +8,13 @@ public class ClientInfoDto {
 
     @JsonProperty("name")
     private String name;
+
     @JsonProperty("surname")
     private String surname;
+
     @JsonProperty("email")
     private String email;
+
     @JsonProperty("phone")
     private String phone;
 }

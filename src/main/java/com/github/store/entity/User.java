@@ -15,15 +15,30 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class User {
 
+    /**
+     id - Унікальний ідентифікатор користувача
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     name - Ім'я користувача
+     */
     private String name;
 
+    /**
+     surname - Прізвище користувача
+     */
     private String surname;
 
+    /**
+     email - Електрона пошта користувача
+     */
     private String email;
 
+    /**
+     phone - Номер телефону користувача
+     */
     private String phone;
 }

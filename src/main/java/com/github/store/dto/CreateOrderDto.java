@@ -8,6 +8,7 @@ public class CreateOrderDto {
 
     @JsonProperty("id")
     private Long productId;
+
     @JsonProperty("quantity")
     private int amount;
 }

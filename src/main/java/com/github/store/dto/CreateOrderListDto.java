@@ -10,6 +10,7 @@ public class CreateOrderListDto {
 
     @JsonProperty("clientInfo")
     private ClientInfoDto clientInfo;
+
     @JsonProperty("products")
     private List<CreateOrderDto> orders;
 }
