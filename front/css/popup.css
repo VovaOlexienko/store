@@ -30,17 +30,18 @@
 }
 
 .popup__text {
+  font-family: 'Kanit', sans-serif;
   width: fit-content;
   font-size: 20pt;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 400;
   margin: 10px auto;
 }
 
 .popup__total {
   display: flex;
   justify-content: space-around;
-  margin: 0 30px 10px 0;
+  margin: 15px 30px 10px 0px;
 }
 
 .popup__total__price {
@@ -48,8 +49,10 @@
   text-transform: uppercase;
 }
 
-/* Конец важной части */
-/* Далее код для стилизации формы */
+.total-price {
+  font-weight: bold;
+}
+
 .close-popup {
   width: 16px;
   height: 16px;
@@ -59,8 +62,6 @@
   cursor: pointer;
 }
 
-/* Конец важной части */
-/* Далее код для стилизации формы */
 .product-cart__wrapper {
   display: flex;
   flex-direction: column;
@@ -90,6 +91,7 @@
 .image-cart {
   width: 75px;
   height: 75px;
+  border-radius: 5px;
 }
 
 .description-cart {
@@ -99,6 +101,7 @@
   text-align: justify;
   font-size: 13pt;
 }
+
 .description-cart p {
   height: 100%;
 }
@@ -110,6 +113,7 @@
   width: 30%;
   height: 100%;
 }
+
 .cart-counter_block {
   display: flex;
   justify-content: center;
@@ -146,10 +150,8 @@
 .basket-delete:hover {
   box-shadow: 0 0 3px 3px #e2000070;
   filter: invert(10%) sepia(96%) saturate(7499%) hue-rotate(12deg)
-    brightness(89%) contrast(113%);
+          brightness(89%) contrast(113%);
 }
-
-/* Registaration Modal */
 
 .popup_calc_end {
   display: none;
@@ -161,23 +163,23 @@
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .popup_calc_end.active {
   display: flex;
 }
+
 .popup_content {
   width: 30rem;
   text-align: center;
 }
 
 .popup_content {
-  /* display: none; */
   position: fixed;
   top: 10%;
   left: 50%;
   text-align: center;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 28rem;
   border-radius: 10px;
   background-color: #ffffff;
 }
@@ -186,10 +188,12 @@
   display: none;
   height: 200px;
 }
+
 .order_done p {
   font-size: 16pt;
   font-weight: 600;
 }
+
 .order_done.active {
   display: flex;
   justify-content: center;
@@ -214,6 +218,7 @@
 }
 
 .form h2 {
+  font-family: 'Kanit', sans-serif;
   margin-bottom: 1.5rem;
   font-size: 25px;
   font-weight: 800;
@@ -236,9 +241,9 @@
   padding: 0;
   margin: 0px auto 35px;
   text-align: center;
-  font-size: 16px;
-  border: 1.5px solid black;
-  border-radius: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(42 45 43);
+  border-radius: 5px;
 }
 
 .form_notice {

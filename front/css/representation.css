@@ -148,7 +148,6 @@ body {
     font-weight: bold;
 }
 
-/* Media */
 @media (max-width: 768px) {
     .shopping__img {
         width: 45%;

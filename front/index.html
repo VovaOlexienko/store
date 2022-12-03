@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="img/rat.png" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/popup.css" />
+    <link rel="stylesheet" href="css/media.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -25,30 +26,32 @@
                   <input
                     class="form_input check_name"
                     name="user_name"
-                    required
                     type="text"
                     placeholder="Enter your name"
+                    required
                   />
                   <input
                     class="form_input check_surname"
                     name="user_surname"
-                    required
                     type="text"
                     placeholder="Enter your surname"
+                    required
                   />
                   <input
                     class="form_input check_email"
                     name="user_email"
-                    required
                     type="email"
                     placeholder="Enter your email"
+                    required
                   />
                   <input
                     class="form_input check_phone"
                     name="user_phone"
-                    required
-                    type="text"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    type="tel"
                     placeholder="Enter phone number"
+                    required
                   />
                 </div>
                 <button class="btn-block button" name="submit" type="submit">
@@ -63,24 +66,16 @@
         <div class="container">
           <div class="header__wrapper">
             <div class="name">Rat Store</div>
-            <form class="search-form">
-              <input
-                type="text"
-                class="search-txt"
-                placeholder="Пошук"
-                minlength="3"
-                title="Minimum 3 letter without special symbols"
-                pattern="[a-zA-Z0-9-]+"
-                required
-              />
-              <button href="#" class="search-btn" type="submit">
+            <div class="search-form">
+              <input type="text" class="search-txt" placeholder="Search" maxlength="15"/>
+              <button href="#" class="search-btn">
                 <img src="img/search.png" alt="search" />
               </button>
-            </form>
+            </div>
             <div class="cart_block">
               <p class="cart__counter"></p>
               <a href="#" class="cart">
-                <img src="img/shopping-cart.png" alt="shopping-cart" />
+                <img src="img/basket.png" alt="shopping-cart" />
               </a>
             </div>
           </div>
@@ -105,7 +100,6 @@
         </div>
       </div>
     </div>
-
     <script type="module" src="script/script.js"></script>
   </body>
 </html>

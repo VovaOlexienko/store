@@ -8,13 +8,11 @@
   border: none;
   background: none;
   cursor: pointer;
-  
   font-family: "Source Code Pro";
   font-weight: 900;
   text-transform: uppercase;
   font-size: 30px;  
   color: rgb(255, 255, 255);
-  
   background-color: hsl(0, 83%, 50%);
   box-shadow: rgb(98, 6, 6) 2px 2px 22px;
   border-radius: 4px; 
@@ -47,12 +45,15 @@
   height: 100%;
   top: 0;
 }
+
 .right {
   left: 66%;
 }
+
 .left {
   right: 66%;
 }
+
 .right::after {
   top: -30px;
   left: calc(-66% - 20px);
@@ -73,7 +74,6 @@
   transform: translate(0, -50%) rotate(7deg)
 }
 
-/* bubbles */
 .link_store::before {
   content: '';
   pointer-events: none;
@@ -82,7 +82,6 @@
     radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, rgb(211, 88, 88) 3px, rgb(236, 198, 198) 4px, transparent 4px),
     radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, rgb(220, 108, 108) 3px, rgb(236, 198, 198) 4px, transparent 4px),
     radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, rgb(168, 79, 79)5px, rgb(236, 198, 198) 6px, transparent 6px);
-
   width: 100%;
   height: 300%;
   top: 0;
@@ -100,26 +99,28 @@
   }
 }
 
-/* ------------------------------------------ */
-
 a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 30px;
 }
+
 a span {
   padding: 13px;
   transition: .5s;
   position: relative;
 }
+
 a span:nth-child(1) {
   color: #fff;
   background: #262626;
 }
+
 a span:nth-child(2) {
   color: #fff;
   background: #ff3636;
 }
+
 a span:nth-child(1):before {
   content: attr(data-attr);
   position: absolute;
@@ -131,9 +132,11 @@ a span:nth-child(1):before {
   transform-origin: top;
   transform: rotateX(90deg) translateY(-50%);
 }
+
 a:hover span:nth-child(1):before {
   transform: rotateX(0deg) translateY(0%);
 } 
+
 a span:nth-child(2):before {
   content: attr(data-attr);
   position: absolute;
@@ -145,9 +148,11 @@ a span:nth-child(2):before {
   transform-origin: bottom;
   transform: rotateX(90deg) translateY(50%);
 }
+
 a:hover span:nth-child(2):before {
   transform: rotateX(0deg) translateY(0%);
 } 
+
 a  span:nth-child(1):after {
 content: attr(data-attr);
 padding: 13px;
@@ -159,9 +164,11 @@ transform-origin: bottom;
 transform: rotateX(0deg) translateY(0%);
 transition: 0.5s;
 }
+
 a:hover span:nth-child(1):after {
 transform: rotateX(90deg) translateY(50%);
 }
+
 a span:nth-child(2):after {
   content: attr(data-attr);
   position: absolute;
@@ -173,6 +180,7 @@ a span:nth-child(2):after {
   transform-origin: top;
   transform: rotateX(0deg) translateY(0%);
 }
+
 a:hover span:nth-child(2):after {
   transform: rotateX(90deg) translateY(-50%);
 } 

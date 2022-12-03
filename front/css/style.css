@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap');
+
 *,
 *::after,
 *::before {
@@ -9,94 +12,150 @@ html,
 body {
   height: 100%;
 }
+
 body {
-  background-color: #9de595;
+  background-color: #3b3f4e;
 }
+
 .header {
   margin-top: 20px;
 }
+
 .container {
   position: relative;
   max-width: 1170px;
   margin: 0 auto;
 }
+
 .header__wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+
 .search-form {
   display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
+
+.search-txt {
+  font-family: 'Kanit', sans-serif;
+  font-size: 22px;
+  padding: 6px 10px;
+  text-align: center;
+  border: 1px solid #C1C1C1;
+  background-color: white;
+  width: 280px;
+  box-shadow: 0 80px 80px -60px rgb(87 109 151);
+  border-radius: 10px;
+  outline: none;
+}
+
+.search-btn {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.search-btn:hover {
+  background: #fff;
+}
+
 .name {
-  cursor: pointer;
-  font-size: 23px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
   font-weight: bold;
-  color: #1a2b21;
+  text-decoration: underline;
+  color: #ffffff;
 }
+
+.cart img {
+  width: 46px;
+}
+
 .cards__wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 290px;
+  height: 310px;
   width: 220px;
   margin-top: 100px;
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 10px;
+  box-shadow: 0 40px 54px -64px rgb(255 255 255);
   background-color: #f2f3f4;
 }
+
 .cart_block {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 14px;
 }
+
+.cart__counter{
+  font-family: 'Kanit', sans-serif;
+  font-size: 28px;
+  color: #fff;
+}
+
 .image-product {
   width: 140px;
   height: 140px;
   margin-bottom: 25px;
+  border-radius: 5px;
 }
+
 .description-product {
+  font-family: 'Hind', sans-serif;
   width: 100%;
-  height: 40px;
-  margin-bottom: 25px;
+  height: 50px;
+  margin-bottom: 20px;
   overflow: hidden;
   font-size: 13pt;
 }
+
 .price-product {
+  font-family: 'Hind', sans-serif;
   width: 100%;
-  font-size: 14pt;
-  font-weight: 600;
+  font-size: 16pt;
+  font-weight: 800;
 }
+
 button {
   cursor: pointer;
   margin-top: auto;
   padding: 6px 16px;
   border: none;
-  border-radius: 15px;
-  background: #1d8348;
+  border-radius: 3px;
+  background: #37374d;
   color: white;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 9pt;
+  font-size: 13px;
   transition: all 0.2s;
 }
+
 button:hover {
-  background-color: #186a3b;
+  background: #262635;
 }
+
 .disable {
   display: none;
 }
+
 .cart__status {
   margin-top: 10px;
   font-size: 14pt;
   text-transform: uppercase;
   font-weight: 800;
   border-radius: 15px;
-  color: #cf2d2d;
+  color: #d22626
 }
