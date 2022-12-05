@@ -214,7 +214,7 @@ const sendData = async (url, data) => {
 };
 
 const handleBtnRegistr = () => {
-  document.querySelector('.btn-block').addEventListener('click', (e) => {
+  document.querySelector('.btn-block').addEventListener('submit', (e) => {
     e.preventDefault();
     const check = {
       products: [...cartProducts],
